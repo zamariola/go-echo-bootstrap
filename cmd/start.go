@@ -51,9 +51,9 @@ func init() {
 
 func setupConfig() {
 	cobra.OnInitialize(setupViper)
-	rootCmd.PersistentFlags().StringVar(&port, "port", "", "Server port, default: 9010")
+	rootCmd.PersistentFlags().StringVar(&port, "port", "", "Server port, default: 9011")
 	viper.BindPFlag("port", rootCmd.PersistentFlags().Lookup("port"))
-	viper.SetDefault("port", "9010")
+	viper.SetDefault("port", "9011")
 }
 
 func setupViper() {
