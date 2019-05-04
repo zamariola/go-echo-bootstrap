@@ -39,7 +39,8 @@ To be able to persist information you need to set up database configuration:
 Then you can create:
 
 ```shell
-#curl localhost:9011/users -H'Content-Type: application/json' -d'{"name":"Name Surname","email":"my@email.com"}'
+#curl localhost:9011/users -H'Content-Type: application/json' \
+-d'{"name":"Name Surname","email":"my@email.com"}'
 ```
 
 And read:
