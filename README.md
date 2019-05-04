@@ -23,6 +23,31 @@ or
 
 [http://localhost:9011/status](http://localhost:9011/status)
 
+## Simple Create / Read operation
+
+To be able to persist information you need to set up database configuration:
+
+```shell
+#./build/server --port=9011 \
+--db_host=localhost \
+--db_port=5431 \
+--db_user=mydbuser \
+--db_pass=mydbpass \
+--db_name=mydb
+```
+
+Then you can create:
+
+```shell
+#curl localhost:9011/users -H'Content-Type: application/json' -d'{"name":"Name Surname","email":"my@email.com"}'
+```
+
+And read:
+
+```shell
+#curl localhost:9011/users/Name%20Surname
+```
+
 # IMPORTANT:
 
 For the sake of simplicity I've organized all classes inside one package (internal), but this isn't a good practice. Also, I haven't included some common features as database migration, package structure, clean architecture and etc.
