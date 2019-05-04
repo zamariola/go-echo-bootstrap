@@ -2,16 +2,18 @@ package cmd
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/labstack/echo/middleware"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"github.com/zamariola/go-echo-bootstrap/internal"
-	"os"
 )
 
 var (
-	port string
+	port                                   string
+	dbhost, dbport, dbuser, dbpass, dbname string
 )
 
 var rootCmd = &cobra.Command{
@@ -52,7 +54,19 @@ func init() {
 func setupConfig() {
 	cobra.OnInitialize(setupViper)
 	rootCmd.PersistentFlags().StringVar(&port, "port", "", "Server port, default: 9011")
+	rootCmd.PersistentFlags().StringVar(&dbhost, "db_host", "", "Database host")
+	rootCmd.PersistentFlags().StringVar(&dbport, "db_port", "", "Database port")
+	rootCmd.PersistentFlags().StringVar(&dbuser, "db_user", "", "Database user")
+	rootCmd.PersistentFlags().StringVar(&dbpass, "db_pass", "", "Database password")
+	rootCmd.PersistentFlags().StringVar(&dbname, "db_name", "", "Database name")
+
 	viper.BindPFlag("port", rootCmd.PersistentFlags().Lookup("port"))
+	viper.BindPFlag("db_host", rootCmd.PersistentFlags().Lookup("db_host"))
+	viper.BindPFlag("db_port", rootCmd.PersistentFlags().Lookup("db_port"))
+	viper.BindPFlag("db_user", rootCmd.PersistentFlags().Lookup("db_user"))
+	viper.BindPFlag("db_pass", rootCmd.PersistentFlags().Lookup("db_pass"))
+	viper.BindPFlag("db_name", rootCmd.PersistentFlags().Lookup("db_name"))
+
 	viper.SetDefault("port", "9011")
 }
 

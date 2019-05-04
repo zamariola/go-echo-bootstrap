@@ -12,3 +12,5 @@
 *.out
 build/
 go-echo-bootstrap
+
+.vscode/
