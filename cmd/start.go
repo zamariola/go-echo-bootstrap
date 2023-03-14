@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/labstack/echo/middleware"
+	"github.com/labstack/echo/v4/middleware"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -38,7 +38,7 @@ var rootCmd = &cobra.Command{
 	},
 }
 
-//Execute starts the application
+// Execute starts the application
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)

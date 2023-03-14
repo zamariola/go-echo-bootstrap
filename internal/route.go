@@ -3,7 +3,7 @@ package internal
 import (
 	"net/http"
 
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -13,7 +13,7 @@ const (
 	getUserPath = "/users/:name"
 )
 
-//WireRoutes creates a new echo instance and wires routes to domain paths
+// WireRoutes creates a new echo instance and wires routes to domain paths
 func WireRoutes() *echo.Echo {
 
 	e := echo.New()
